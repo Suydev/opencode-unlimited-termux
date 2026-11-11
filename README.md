@@ -30,6 +30,7 @@ correct rotation of the one thing the wall is keyed to.
 | `termux/install.sh` | one-command setup (background loops, no systemd) |
 | `termux/proxies.txt` | the proxy pool |
 | `RESEARCH.md` | deep research: the four gates, the per-block quota axis, sources |
+| `GATEWAY-CENSUS.md` | census of repos converting OpenCode Zen/free tier into an API gateway |
 | `bridge/` | [opencode-free-bridge](https://github.com/azrinaldi/opencode-free-bridge) v2.3.1 — Bun TLS + proxy pool + `/v1/messages` |
 | `NOTES.md` | the full research log |
 
