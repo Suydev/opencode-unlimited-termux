@@ -16,7 +16,11 @@ a **Bun-like ClientHello** and the **real request shape**. That is the whole tri
   consumed the per-IP bucket.
 - 429 headers: `server-timing: gateway;dur=5` (real quota, not the TLS gate),
   `retry-after: 66017` s ≈ **18.3 h**, `x-opencode-log-id` present.
-- Conclusion: ≈ **1 request / IP / day**, resetting near **midnight UTC (05:30 IST)**.
+- Conclusion: ≈ **100 requests / IP / day** — measured directly: the device IP served
+  **99 × 200** in a row (≈517k tokens), then `429` (`retry-after ≈ 18 h`). Fresh premium
+  proxies served 12–15 each. Resets near **midnight UTC (05:30 IST)**: the next day's sweep
+  returned **91/100** real. The docs list LongCat 2.5 Free at **100 requests/day**; a token
+  cap is not ruled out (the reasoning output dominates the ≈5.2k tokens/request).
 
 ### The TLS gate is "Bun-like", not an exact SHA
 - Bun 1.4.3 and 1.4.4 produce **identical** ClientHellos (17 ciphers, 12 extensions,
