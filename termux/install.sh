@@ -6,7 +6,7 @@
 set -u
 
 DEST="$HOME/.local/share/opencode-unlimited-termux"
-SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"   # repo root (parent of termux/)
 
 echo "[install] opencode-unlimited-termux (Termux/Android)"
 
