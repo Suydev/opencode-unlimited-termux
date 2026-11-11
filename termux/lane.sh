@@ -46,4 +46,10 @@ if [ -n "$PROXY" ]; then
   printf '%s\n' "$PROXY" > "$DEST/current-proxy"
 fi
 
+# OpenCode on Termux is a musl binary; it needs its loader (the plain exec fails with
+# "cannot execute: required file not found"). Prefer the loader + musl binary.
+OC_DIR="$HOME/.opencode"
+if [ -x "$OC_DIR/ld-musl-aarch64.so.1" ] && [ -f "$OC_DIR/opencode" ]; then
+  exec "$OC_DIR/ld-musl-aarch64.so.1" --library-path "$OC_DIR" "$OC_DIR/opencode" "$@"
+fi
 exec "$REAL" "$@"
