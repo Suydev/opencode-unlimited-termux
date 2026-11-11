@@ -11,7 +11,7 @@ correct rotation of the one thing the wall is keyed to.
 | Fact | Measurement |
 |---|---|
 | Wall key | **egress IP**, not the account |
-| Quota | ≈ **100 requests / IP / day** (99 measured on the device IP; ≈517k tokens) |
+| Quota | per **egress block** — `/64` IPv6, `/32` IPv4 — **~100 requests/day** (99 measured on the device IP); reset **00:00 UTC** |
 | Reset | near **midnight UTC (05:30 IST)**; `retry-after ≈ 18 h` |
 | TLS gate | requires a **Bun-like ClientHello**; `server-timing: gateway;dur=0` = TLS rejected, `dur>0` = reached the inference service |
 | Body gate | a **minimal body is rejected**; the full captured shape is accepted |
@@ -29,6 +29,7 @@ correct rotation of the one thing the wall is keyed to.
 | `termux/hop.sh` | manual "give me a fresh proxy now" |
 | `termux/install.sh` | one-command setup (background loops, no systemd) |
 | `termux/proxies.txt` | the proxy pool |
+| `RESEARCH.md` | deep research: the four gates, the per-block quota axis, sources |
 | `bridge/` | [opencode-free-bridge](https://github.com/azrinaldi/opencode-free-bridge) v2.3.1 — Bun TLS + proxy pool + `/v1/messages` |
 | `NOTES.md` | the full research log |
 
